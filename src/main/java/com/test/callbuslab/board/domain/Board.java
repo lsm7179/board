@@ -1,6 +1,7 @@
 package com.test.callbuslab.board.domain;
 
 import com.test.callbuslab.jpautil.BaseTimeEntity;
+import com.test.callbuslab.user.domain.User;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -18,14 +19,20 @@ public class Board extends BaseTimeEntity {
     @Lob
     private String contents;
 
-    /*@ManyToOne
-    @JoinColumn(name = "writer_id", foreignKey = @ForeignKey(name = "fk_question_writer"))
-    private User writer;*/
+    @ManyToOne
+    @JoinColumn(name = "writer_id", foreignKey = @ForeignKey(name = "fk_board_writer"))
+    private User writer;
 
     @Column(nullable = false)
     private boolean deleted;
 
     protected Board() {
+    }
+
+    public Board(String title, String contents, User writer) {
+        this.title = title;
+        this.contents = contents;
+        this.writer = writer;
     }
 
     @Override
