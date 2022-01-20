@@ -16,7 +16,7 @@ public class CommentTest {
     @BeforeEach
     void setUp() {
         board = new Board("제목", "내용입니다.", user);
-        user = new User("이승민", AccountType.LESSEE, "lsm");
+        user = new User("이승민", AccountType.GENERAL, "lsm");
     }
 
     @DisplayName("생성 검증")

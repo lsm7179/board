@@ -11,7 +11,7 @@ public class UserTest {
     @Test
     void create() {
 
-        User user = new User("이승민", AccountType.LESSEE, "lsm");
+        User user = new User("이승민", AccountType.GENERAL, "lsm");
 
         assertThat(user).isNotNull();
     }

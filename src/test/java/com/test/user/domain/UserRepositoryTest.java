@@ -16,7 +16,7 @@ public class UserRepositoryTest {
     @DisplayName("저장 검증")
     @Test
     void saveWithUser() {
-        User user = new User("이승민", AccountType.LESSEE, "lsm");
+        User user = new User("이승민", AccountType.GENERAL, "lsm");
 
         User savedUser = userRepository.save(user);
 

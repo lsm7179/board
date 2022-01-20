@@ -14,7 +14,7 @@ public class BoardTest {
 
     @BeforeEach
     void setUp() {
-        user = new User("이승민", AccountType.LESSEE, "lsm");
+        user = new User("이승민", AccountType.GENERAL, "lsm");
     }
 
     @DisplayName("게시글 생성")
