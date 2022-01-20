@@ -1,4 +1,4 @@
-package com.test.callbuslab.user.domain;
+package com.test.user.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

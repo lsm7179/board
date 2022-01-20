@@ -1,4 +1,4 @@
-package com.test.callbuslab.user.domain;
+package com.test.user.domain;
 
 public enum AccountType {
     LESSOR, REALTOR, LESSEE

@@ -1,4 +1,4 @@
-package com.test.callbuslab.jpautil;
+package com.test.jpautil;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;

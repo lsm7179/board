@@ -1,4 +1,4 @@
-package com.test.callbuslab.board.domain;
+package com.test.board.domain;
 
 public enum ContentType {
     BOARD, COMMENT

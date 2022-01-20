@@ -1,7 +1,7 @@
-package com.test.callbuslab.board.domain;
+package com.test.board.domain;
 
-import com.test.callbuslab.jpautil.BaseTimeEntity;
-import com.test.callbuslab.user.domain.User;
+import com.test.jpautil.BaseTimeEntity;
+import com.test.user.domain.User;
 
 import javax.persistence.*;
 import java.util.Objects;

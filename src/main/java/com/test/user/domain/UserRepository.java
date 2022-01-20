@@ -1,4 +1,4 @@
-package com.test.callbuslab.user.domain;
+package com.test.user.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

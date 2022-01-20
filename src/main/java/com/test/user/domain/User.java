@@ -1,4 +1,4 @@
-package com.test.callbuslab.user.domain;
+package com.test.user.domain;
 
 import javax.persistence.*;
 import java.util.Objects;
