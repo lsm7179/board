@@ -1,5 +1,5 @@
 package com.test.user.domain;
 
 public enum AccountType {
-    ADMIN, GENERAL
+    ADMIN, NORMAL
 }

@@ -35,6 +35,26 @@ public class Board extends BaseTimeEntity {
         this.writer = writer;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContents() {
+        return contents;
+    }
+
+    public User getWriter() {
+        return writer;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
