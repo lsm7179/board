@@ -1,6 +1,6 @@
 package com.test.board.domain;
 
-import com.test.jpautil.BaseTimeEntity;
+import com.test.util.entity.BaseTimeEntity;
 import com.test.user.domain.User;
 
 import javax.persistence.*;
