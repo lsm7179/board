@@ -17,7 +17,7 @@ public class User {
     private AccountType accountType;
 
     @Column(nullable = false, length = 100)
-    private String account_id;
+    private String accountId;
 
     @Column(nullable = false)
     private boolean quit;
@@ -25,10 +25,10 @@ public class User {
     protected User() {
     }
 
-    public User(String nickname, AccountType accountType, String account_id) {
+    public User(String nickname, AccountType accountType, String accountId) {
         this.nickname = nickname;
         this.accountType = accountType;
-        this.account_id = account_id;
+        this.accountId = accountId;
     }
 
     public Long getId() {
@@ -43,8 +43,8 @@ public class User {
         return accountType;
     }
 
-    public String getAccount_id() {
-        return account_id;
+    public String getAccountId() {
+        return accountId;
     }
 
     public boolean isQuit() {
@@ -56,11 +56,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(account_id, user.account_id);
+        return Objects.equals(id, user.id) && Objects.equals(accountId, user.accountId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, account_id);
+        return Objects.hash(id, accountId);
     }
 }

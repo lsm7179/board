@@ -40,14 +40,14 @@ public class BoardApiTest {
         ExtractableResponse response = RestAssured
                 .given().log().all()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .header("Authorization", "lsm 1")
-                .params(params)
-                .when()
-                .post("board")
+                .header("Authorization", "1")
+                .body(params)
+                .when().log().all()
+                .post("/board")
                 .then().log().all()
                 .extract();
 
-        assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
+        assertThat(response.statusCode()).isEqualTo(HttpStatus.CREATED.value());
     }
 
     private Map boardParams() {
