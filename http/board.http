@@ -1,2 +1,15 @@
+###
 GET {{host}}/board
+Content-Type: application/json
 Authorization: lsm 1
+
+###
+POST {{host}}/board
+Content-Type: application/json
+Authorization: lsm 1
+
+{
+  "title": "제목",
+  "contents": "내용입니다."
+}
+###

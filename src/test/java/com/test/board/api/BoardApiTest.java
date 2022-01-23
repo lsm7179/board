@@ -11,12 +11,15 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
+@DisplayName("게시판 api 테스트")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class BoardApiTest {
 
@@ -26,6 +29,32 @@ public class BoardApiTest {
     @BeforeEach
     public void setUp() {
         RestAssured.port = port;
+    }
+
+    @DisplayName("글 작성")
+    @Test
+    void boardCreate() {
+
+        Map<String, String> params = boardParams();
+
+        ExtractableResponse response = RestAssured
+                .given().log().all()
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .header("Authorization", "lsm 1")
+                .params(params)
+                .when()
+                .post("board")
+                .then().log().all()
+                .extract();
+
+        assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
+    }
+
+    private Map boardParams() {
+        Map<String, String> result = new HashMap<>();
+        result.put("title", "제목");
+        result.put("contents", "내용입니다.");
+        return result;
     }
 
     @DisplayName("글 목록 확인")
