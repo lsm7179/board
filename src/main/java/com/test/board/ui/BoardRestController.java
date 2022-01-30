@@ -32,4 +32,10 @@ public class BoardRestController {
     public ResponseEntity<List> findAllBoard() {
         return ResponseEntity.ok(boardService.findAllBoard());
     }
+
+    @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        boardService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

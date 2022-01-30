@@ -6,10 +6,12 @@ import com.test.board.dto.BoardRequest;
 import com.test.user.application.UserService;
 import com.test.user.domain.User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class BoardService {
 
     private final UserService userService;
@@ -20,7 +22,7 @@ public class BoardService {
         this.boardRepository = boardRepository;
     }
 
-
+    @Transactional
     public Board create(BoardRequest boardRequest, String authorization) {
         User writer = userService.authentication(authorization);
         Board board = boardRequest.toBoard(writer);
@@ -31,5 +33,8 @@ public class BoardService {
         return boardRepository.findAll();
     }
 
-
+    @Transactional
+    public void delete(Long id) {
+        boardRepository.deleteById(id);
+    }
 }
