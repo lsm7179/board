@@ -55,6 +55,10 @@ public class Board extends BaseTimeEntity {
         return deleted;
     }
 
+    public void delete() {
+        this.deleted = true;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -67,4 +71,6 @@ public class Board extends BaseTimeEntity {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+
 }

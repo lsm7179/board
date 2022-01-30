@@ -35,6 +35,7 @@ public class BoardService {
 
     @Transactional
     public void delete(Long id) {
-        boardRepository.deleteById(id);
+        Board board = boardRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        board.delete();
     }
 }
