@@ -33,7 +33,7 @@ public class BoardRestController {
         return ResponseEntity.ok(boardService.findAllBoard());
     }
 
-    @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         boardService.delete(id);
         return ResponseEntity.noContent().build();

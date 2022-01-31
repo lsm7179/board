@@ -79,4 +79,30 @@ public class BoardApiTest {
         );
 
     }
+
+    @DisplayName("글 삭제 검증")
+    @Test
+    void deleteBoard() {
+        ExtractableResponse createBoard = RestAssured
+                .given().log().all()
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .header("Authorization", "1")
+                .body(boardParams())
+                .when().log().all()
+                .post("/board")
+                .then().log().all()
+                .extract();
+
+        Board board = createBoard.as(Board.class);
+
+        ExtractableResponse response = RestAssured
+                .given().log().all()
+                .when().log().all()
+                .delete("/board/{id}",board.getId())
+                .then().log().all()
+                .extract();
+
+        assertThat(response.statusCode()).isEqualTo(HttpStatus.NO_CONTENT.value());
+
+    }
 }
