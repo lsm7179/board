@@ -105,4 +105,32 @@ public class BoardApiTest {
         assertThat(response.statusCode()).isEqualTo(HttpStatus.NO_CONTENT.value());
 
     }
+
+    @DisplayName("글 상세 검증")
+    @Test
+    void detailBoard() {
+
+        ExtractableResponse createBoard = RestAssured
+                .given().log().all()
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .header("Authorization", "1")
+                .body(boardParams())
+                .when().log().all()
+                .post("/board")
+                .then().log().all()
+                .extract();
+
+        Board board = createBoard.as(Board.class);
+
+        ExtractableResponse detailBoard = RestAssured
+                .given().log().all()
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .when().log().all()
+                .get("/board/{id}",board.getId())
+                .then().log().all()
+                .extract();
+
+        assertThat(detailBoard.statusCode()).isEqualTo(HttpStatus.OK.value());
+
+    }
 }
