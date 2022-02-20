@@ -3,6 +3,7 @@ package com.test.board.ui;
 import com.test.board.application.BoardService;
 import com.test.board.domain.Board;
 import com.test.board.dto.BoardRequest;
+import com.test.board.dto.BoardResponse;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,5 +38,11 @@ public class BoardRestController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         boardService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<BoardResponse> findBoardById(@PathVariable long id) {
+        BoardResponse boardResponse = boardService.findBoardById(id);
+        return ResponseEntity.ok(boardResponse);
     }
 }

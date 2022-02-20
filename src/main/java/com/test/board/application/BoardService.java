@@ -3,6 +3,7 @@ package com.test.board.application;
 import com.test.board.domain.Board;
 import com.test.board.domain.BoardRepository;
 import com.test.board.dto.BoardRequest;
+import com.test.board.dto.BoardResponse;
 import com.test.user.application.UserService;
 import com.test.user.domain.User;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,14 @@ public class BoardService {
 
     @Transactional
     public void delete(Long id) {
-        Board board = boardRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        Board board = boardRepository.findById(id)
+                .orElseThrow(IllegalArgumentException::new);
         board.delete();
+    }
+
+    public BoardResponse findBoardById(long id) {
+        Board board = boardRepository.findById(id)
+                .orElseThrow(IllegalArgumentException::new);
+        return BoardResponse.from(board);
     }
 }
