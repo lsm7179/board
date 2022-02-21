@@ -1,6 +1,7 @@
 package com.test.board.api;
 
 import com.test.board.domain.Board;
+import com.test.board.dto.BoardResponse;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import org.junit.jupiter.api.BeforeEach;
@@ -130,7 +131,13 @@ public class BoardApiTest {
                 .then().log().all()
                 .extract();
 
+        BoardResponse response = detailBoard.response().getBody().as(BoardResponse.class);
+
+        assertThat(response.getId()).isNotNull();
         assertThat(detailBoard.statusCode()).isEqualTo(HttpStatus.OK.value());
 
     }
+
+
+
 }
