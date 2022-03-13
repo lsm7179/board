@@ -39,20 +39,18 @@ public class BoardMockMvcTest {
                         .content(content))
                 .andExpect(status().isCreated())
                 .andDo(MockMvcResultHandlers.log())
-                .andDo(MockMvcResultHandlers.print())
-                ;
-
+                .andDo(MockMvcResultHandlers.print());
     }
 
+    @DisplayName("글 목록 확인")
     @Test
-    void name() throws Exception{
+    void boardList() throws Exception{
         mockMvc.perform(get("/board")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .header("Authorization", "1"))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.log())
-                .andDo(MockMvcResultHandlers.print())
-        ;
+                .andDo(MockMvcResultHandlers.print());
     }
 
     private Map boardParams() {
