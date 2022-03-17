@@ -22,3 +22,6 @@
 * [x] 댓글 테이블
 * [x] 글 삭제 이력 테이블
 * [x] 좋아요 테이블
+
+#### 참고
+https://pompitzz.github.io/blog/Spring/MockMvc_Encoding.html#%E1%84%8B%E1%85%A8%E1%84%89%E1%85%B5

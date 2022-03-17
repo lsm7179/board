@@ -1,6 +1,7 @@
 package com.test.board.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.test.configurations.EnableMockMvc;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @Transactional
-@AutoConfigureMockMvc
+@EnableMockMvc
 public class BoardMockMvcTest {
 
     @Autowired
