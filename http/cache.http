@@ -1,0 +1,10 @@
+GET {{host}}/cache/list/1
+Content-Type: application/json
+
+###
+GET {{host}}/cache/1
+Content-Type: application/json
+
+###
+GET {{host}}/cache/2
+Content-Type: application/json
